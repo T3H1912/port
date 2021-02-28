@@ -1,20 +1,28 @@
 <template>
   <div id="ProgressCard" class="way">
-      <div class="container" @mouseenter="gDown" @mouseleave="gUp">
-        <div class="row justify-content-center">
-          <div class="radius r_1" :class="{col_or}" ></div>
-          <div class="radius r_2" :class="{col_or}"></div>
-          <div class="radius r_3" :class="{col_or}" ></div>
-          <div class="radius r_4" :class="{col_or}"></div>
+      <div class="container-fluid con_ " @mouseenter="gDown" @mouseleave="gUp">
+        <div class="componentRoll">
+            <div class="roolTextComponent">
+              <RoolTextComponent/> 
+            </div>
+        </div>
+        <div class="row ">
 
-          <div class=" grid col-6 " >
+          <div class="radiusBG">
+            <div class="radius r_1" :class="{col_or}" ></div>
+            <div class="radius r_2" :class="{col_or}"></div>
+            <div class="radius r_3" :class="{col_or}" ></div>
+            <div class="radius r_4" :class="{col_or}"></div>
+          </div>  
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid " > 
               <div id="M_L1" class="layer">
                       <img class="img_1" src="@/assets/image/prog.png" alt="">
                     <div class="info info_L">
                       <div class="glowing">
-                        <h1 id="title" class="title">Design</h1>
-                        <h3 id="title2">CREATIVE</h3>
-                        <h3 id="title3">INOVATIVE DESIGN</h3>
+                        <p id="title" class="title">Design</p>
+                        <p id="title2">CREATIVE</p>
+                        <p id="title3">INOVATIVE DESIGN</p>
                       </div>
                       <div class="ff_123R s_1">
                           <p id="ff_12">Show things in a fully new way. Sometimes being successful means being different </p>
@@ -22,15 +30,14 @@
                     </div>
               </div>
             </div>  
-
-            <div class=" grid col-6 ">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid ">
               <div id="M_L2" class="layer">
                       <img class="img_3" src="@/assets/image/pr_2.png" alt="">
                   <div class="info info_P">
                       <div class="glowing">
-                        <h1 id="title" class="title">Programming</h1>
-                        <h3 id="title2">INTUITIVE</h3>
-                        <h3 id="title3">TECHNOLOGY.</h3>
+                        <p id="title" class="title">Programming</p>
+                        <p id="title2">INTUITIVE</p>
+                        <p id="title3">TECHNOLOGY.</p>
                       </div>
                       <div class="ff_123R s_2">
                           <p id="ff_12">sidfhsudhf sdkfhhshf sdifshdikf sdkfhhskdjfksdhfsd fskjdfbksjdhfsdf sdjkfsjdhf </p>
@@ -41,13 +48,26 @@
 
         </div>
     </div>
+    <div class="componentImg">
+          <div class="ImageComponent">
+            <Image2Component2 selectedIMG="VT"/> 
+          </div>
+      </div>
   </div>
 </template>
 
 <script>
+import RoolTextComponent from '@/components/RoolTextComponent.vue'
+import Image2Component2 from '@/components/Image2Component2.vue'
 import gsap from "gsap";
 
 export default {
+
+  components: {
+    RoolTextComponent,
+    Image2Component2
+  },
+
     name:"PC",
     data(){
       return{
@@ -67,7 +87,7 @@ export default {
         },
         card(){
             const layer = document.querySelectorAll(".layer")
-            const container = document.querySelectorAll(".container")
+            const container = document.querySelectorAll(".con_")
             const glowing = document.querySelectorAll(".glowing")
             const Image_1 = document.querySelector(".img_1")
             const Image_3 = document.querySelector(".img_3")
@@ -77,6 +97,7 @@ export default {
             const r_2 = document.querySelector(".r_2")
             const r_3 = document.querySelector(".r_3")
             const r_4 = document.querySelector(".r_4")
+            const roolTextComponent = document.querySelector(".roolTextComponent")
             
 
             container.forEach(item => {
@@ -101,11 +122,11 @@ export default {
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
                     new gsap.timeline()
-                    .set(glowing, { color:'#fff'})
+                    .set(glowing, { color:'#fff',textShadow: "3px 3px px '#000'",})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
-                    .set(s_1, { translateZ:0, y:0,x:0, color: '#f403e0', rotateZ:0})
-                    .set(s_2, { translateZ:0, y:0,x:0, color: '#f403e0', rotateZ:0})
+                    .set(s_1, { translateZ:0, color: '#f403e0', rotateZ:0})
+                    .set(s_2, { translateZ:0, color: '#f403e0', rotateZ:0})
                     })
                   })
                   container.forEach(item => {
@@ -114,8 +135,8 @@ export default {
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
-                    .set(s_1, { translateZ:0, y:0,x:0, color: '#242424', rotateZ:0})
-                    .set(s_2, { translateZ:0, y:0,x:0, color: '#242424', rotateZ:0})
+                    .set(s_1, { translateZ:0, color: '#242424', rotateZ:0})
+                    .set(s_2, { translateZ:0,color: '#242424', rotateZ:0})
                     .set(layer, {rotateX: 0, rotateY: 0 })
                     })
                   })
@@ -133,8 +154,8 @@ export default {
                     .set(glowing, { color:'#fff',})
                     .set(Image_1, {translateZ:100, rotateZ:0, x:0, y:30})
                     .set(Image_3, {translateZ:100, rotateZ:0, x:0, y:-40})
-                    .set(s_1, { translateZ:50, y:0,x:0, color: '#f403e0', rotateZ:0,})
-                    .set(s_2, { translateZ:50, y:0, x:0, color: '#f403e0', rotateZ:0})
+                    .set(s_1, { translateZ:50, color: '#f403e0', rotateZ:0,})
+                    .set(s_2, { translateZ:50,color: '#f403e0', rotateZ:0})
                     })
                   })
                   container.forEach(item => {
@@ -143,8 +164,8 @@ export default {
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
-                    .set(s_1, { translateZ:0, y:0,x:0, color: '#242424', rotateZ:0})
-                    .set(s_2, { translateZ:0, y:0,x:0, color: '#242424', rotateZ:0})
+                    .set(s_1, { translateZ:0,color: '#242424', rotateZ:0})
+                    .set(s_2, { translateZ:0, color: '#242424', rotateZ:0})
                     .set(layer, {rotateX: 0, rotateY: 0 })
                     })
                   })
@@ -161,12 +182,13 @@ export default {
                     .set(glowing, { color:'#fff',})
                     .set(Image_1, {translateZ:200, rotateZ:-6, x:60, y:90})
                     .set(Image_3, {translateZ:150, rotateZ:10, x:-60, y:90})
-                    .set(s_1, { translateZ:60, y:-450,x:530, color: '#f403e0',})
-                    .set(s_2, { translateZ:60, y:-450, x:-530, color: '#f403e0',})
-                    .set(r_1, {scaleX:0.4, x:-270, y:250, backgroundColor:"#163328"})
-                    .set(r_2, {scaleX:0.4,scaleY:0.01,y:-140, x:-270, backgroundColor:"#163328"})
-                    .set(r_3, {scaleX:0.4, x:270, y:250, backgroundColor:"#163328"})
-                    .set(r_4, {scaleX:0.4,scaleY:0.01,y:-140, x:270, backgroundColor:"#163328"})
+                    .set(s_1, { translateZ:60, color: '#f403e0',})
+                    .set(s_2, { translateZ:60, color: '#f403e0',})
+                    .set(r_1, {scaleX:0.4, x:-270, y:250, opacity:0, backgroundColor:"#163328"})
+                    .set(r_2, {scaleX:0.4,scaleY:0.01,y:-140,opacity:0,  x:-270, backgroundColor:"#163328"})
+                    .set(r_3, {scaleX:0.4, x:270, y:250,opacity:0, backgroundColor:"#163328"})
+                    .set(r_4, {scaleX:0.4,scaleY:0.01,y:-140, x:270,opacity:0, backgroundColor:"#163328"})
+                    .set(roolTextComponent, {opacity:1,})
                     })
                   })
                   container.forEach(item => {
@@ -175,13 +197,14 @@ export default {
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
-                    .set(s_1, { translateZ:0, y:0,x:0, color: '#242424',})
-                    .set(s_2, { translateZ:0, y:0,x:0, color: '#242424',})
+                    .set(s_1, { translateZ:0, color: '#242424',})
+                    .set(s_2, { translateZ:0, color: '#242424',})
                     .set(layer, {rotateX: 0, rotateY: 0 })
-                    .set(r_1, {scaleX:1, x:0, y:0, backgroundColor:"#00f7ff"})
-                    .set(r_2, {scaleX:1,scaleY:1,y:0, x:0, backgroundColor:"#00f7ff"})
-                    .set(r_3, {scaleX:1, x:0, y:0, backgroundColor:"#00f7ff"})
-                    .set(r_4, {scaleX:1,scaleY:1,y:0, x:0, backgroundColor:"#00f7ff"})
+                    .set(r_1, {scaleX:1, x:0, y:0, opacity:1, backgroundColor:"#00f7ff"})
+                    .set(r_2, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
+                    .set(r_3, {scaleX:1, x:0, y:0,opacity:1, backgroundColor:"#00f7ff"})
+                    .set(r_4, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
+                    .set(roolTextComponent, {opacity:0,})
                     })
                   })
                 console.log('large')
@@ -205,41 +228,121 @@ export default {
 <style lang="scss" scoped>
 
 #ProgressCard {
-  width:100vw;
-  height: 200vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  z-index: 1000;
-  color: #242424;
-  font-family: 'Montserrat', sans-serif;
-  background-color: black;
 
-  
-
-  .container {
+  .con_ {
     position: relative;
-    width: 100%;
-    left:0;
-    align-items: center;
-    justify-content: center;
+    perspective: 1000px;
+    margin-top:20vw;
+    width: 101vw;
+    height: 100vh;
     z-index: 2;
   }
-
-  .radius {
+  .componentRoll {
+    position: relative;
+    .roolTextComponent {
       position: absolute;
-      top:15vh;
-      width: 100vw;
-      height: 30vh;
-      background-color: #00f7ff;
-      z-index: -2;
-      transition: all 3s ease-out;
+      transition: all 2.5s ease-out;
+      width: 200vw;
+      left: 0;
+      opacity: 0;
+    }
+  }
+
+  .radiusBG {
+
+  
+    .radius {
+        position: absolute;
+        width: 100vw;
+        height: 30vh;
+        background-color: #00f7ff;
+        z-index: -2;
+        transition: all 3s ease-out;
+      }
     }
     .col_or {
       animation: animate_2 5s linear infinite;
     }
-    @keyframes animate_2 {
+
+  .grid {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    
+  }
+  .layer {
+    position: relative;
+    transform-style: preserve-3d;
+    border: none;
+    text-align: center;
+    align-content: center;
+    z-index: 1000;
+  }
+      .img_1 {
+        position: relative;
+        bottom:8.5vw ;
+        width: 27vw;
+        z-index: 2;
+        transition: all 0.75s ease-out;
+        z-index: 1;
+      }
+      .img_1:hover {
+        animation: animate_2 5s linear infinite;
+      }
+      .img_3 {
+        position: relative;
+        bottom: 10vw;
+        width: 25vw;
+        z-index: 2;
+        transition: all 0.75s ease-out;
+        z-index: 1;
+      }
+      .img_3:hover {
+        animation: animate_3 5s linear infinite;
+      }
+
+
+      
+    .info {
+      position: relative;
+      text-align: start;
+      text-align: center;
+      z-index: 0;
+    }
+    .glowing {
+      color: #242424;
+      font-family: 'Montserrat', sans-serif;
+      font-size: calc(13px + 2vw);
+      transition: all 0.75s ease-out;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+  }
+  .info_P {
+    position: relative;
+    bottom: 6.5vh;
+  }
+  .ff_123R {
+    padding: 2vw;
+    color: #242424;
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(13px + 1vw);
+    transition: all 0.75s ease-out;
+    font-family: 'Orbitron', sans-serif;
+  }
+  .componentImg {
+    position:relative;
+    transform: scale(1.6, 1.6);
+    bottom: 10vw;
+    right: 18%;
+    opacity: 0.3;
+    z-index: 1;
+    
+  }
+        @keyframes animate_2 {
             0%,100%
             {
               filter: hue-rotate(0);
@@ -259,69 +362,9 @@ export default {
               filter: hue-rotate(0.95turn);
             }
         }
-  .grid {
-    position: relative;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    justify-content: center;
-    
-  }
-  .layer {
-    position: relative;
-    transform-style: preserve-3d;
-    //width:50vw;
-    border: none;
-  }
-      .img_1 {
-        position: relative;
-        padding-top: 2rem;
-        width: 23rem;
-        left: 5%;
-        z-index: 2;
-        transition: all 0.75s ease-out;
-        z-index: 1;
-      }
-      .img_1:hover {
-        animation: animate_2 5s linear infinite;
-      }
-      .img_3 {
-        position: relative;
-        width: 22rem;
-        z-index: 2;
-        transition: all 0.75s ease-out;
-        z-index: 1;
-      }
-      .img_3:hover {
-        animation: animate_3 5s linear infinite;
-      }
-    .info {
-      position: relative;
-      padding-left: 1.5vw;
-      padding-right: 1.5vw;
-      text-align: start;
-      text-align: center;
-      z-index: 0;
-    }
-    .info_L {
-      margin-top: 2rem;
-    }
-    .glowing {
-      transition: all 0.75s ease-out;
-      animation: glow 1s ease-in-out infinite alternate;
-    }
-  }
-  .ff_123R {
-    display: flex;
-    width: 25rem;
-    transition: all 0.75s ease-out;
-    font-family: 'Orbitron', sans-serif;
-  }
-
 @keyframes glow {
          from {
-           text-shadow: 0 0 10px #494848, 0 0 20px #353434,
+           text-shadow: 0 0 10px #1d1d1d, 0 0 20px #000000,
          }
         
          to {
@@ -331,10 +374,144 @@ export default {
 
 
 //.................................MEDIA......................................
+ //.......................................MEDIA.................................
+      //.......................................MEDIA.................................
+      //.......................................MEDIA.................................
+      //.......................................MEDIA.................................
+        
+      //.......................................MAX 480px.................................
+
+      @media only screen  and (max-width: 480px) {
+
+        .container {
+          position: relative;
+          width: 100%;
+          z-index: -2;
+        }
+
+        .radius {
+            visibility: hidden;
+          }
+        .grid {
+          width:100vw;
+        }
+        .layer {
+          margin: 10vw;
+          max-width: 100vw;
+        }
+        #title {
+          color:#fff;
+        }
+        #title2 {
+          color:#fff;
+        }
+        #title3 {
+          color:#fff;
+        }
+            .img_1 {
+              left: -5%;
+              min-width: 85vw;
+              z-index: 10;
+            }
+            .img_3 {
+              min-width: 90vw;
+            }
+            #ff_12{
+              color:#f403e0;
+            }
+            .componentImg{
+              opacity: 0.2;
+            }
+        } 
+      //.......................................MIN 576px MAX 575px.................................
+
+      @media only screen and (min-width: 481px) and (max-width: 575px) {
+        .container {
+          position: relative;
+          width: 100%;
+          z-index: -2;
+        }
+
+        .radius {
+            visibility: hidden;
+          }
+        .grid {
+          width:100vw;
+        }
+        .layer {
+          margin: 10vw;
+          max-width: 100vw;
+        }
+        #title {
+          color:#fff;
+        }
+        #title2 {
+          color:#fff;
+        }
+        #title3 {
+          color:#fff;
+        }
+            .img_1 {
+              left: -5%;
+              min-width: 85vw;
+              z-index: 10;
+            }
+            .img_3 {
+              min-width: 90vw;
+            }
+            #ff_12{
+              color:#f403e0;
+            }
+            .componentImg{
+              opacity: 0.2;
+            }
+        }
+    //.......................................MIN 576px MAX 758px.................................
+
+      @media only screen and (min-width: 576px) and (max-width: 757px) {
+        .container {
+          position: relative;
+          width: 100%;
+          z-index: -2;
+        }
+
+        .radius {
+            visibility: hidden;
+          }
+        .grid {
+          width:100vw;
+        }
+        .layer {
+          max-width: 100vw;
+        }
+        #title {
+          color:#fff;
+        }
+        #title2 {
+          color:#fff;
+        }
+        #title3 {
+          color:#fff;
+        }
+            .img_1 {
+              left: -5%;
+              z-index: 10;
+            }
+            .img_3 {
+            }
+            #ff_12{
+              color:#f403e0;
+            }
+            .componentImg{
+              opacity: 0.2;
+            }
+        }  
+
+      //.......................................MIN 758px MAX 991px.................................
 
 
-
-      @media only screen and (max-width: 991px) {
+    @media only screen and (min-width: 758px) and (max-width: 991px) {
+        
         .container {
           position: relative;
           width: 100%;
@@ -372,11 +549,6 @@ export default {
             }
         }
 
-        @media only screen and (max-width: 450px) {
-          .ff_123R {
-            width: 18rem;
-          }
-
-        }
+        
       
 </style>

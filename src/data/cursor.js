@@ -85,7 +85,7 @@ const paper = require('paper');
           
           if (isStuck && polygon.bounds.width < shapeBounds.width) { 
              
-            polygon.scale(2.08);
+            polygon.scale(2.54);
           } else if (!isStuck && polygon.bounds.width > 30) {
             
             if (isNoisy) {
@@ -96,7 +96,7 @@ const paper = require('paper');
               bigCoordinates = [];
             }
             
-            const scaleDown = 0.92;
+            const scaleDown = 0.9;
             polygon.scale(scaleDown);
           }
           
@@ -115,8 +115,8 @@ const paper = require('paper');
               const noiseX = noiseObjects[i].noise2D(event.count / noiseScale, 0);
               const noiseY = noiseObjects[i].noise2D(event.count / noiseScale, 1);
               
-              const distortionX = map(noiseX, -1, 1, -noiseRange, noiseRange);
-              const distortionY = map(noiseY, -1, 1, -noiseRange, noiseRange);
+              const distortionX = map(noiseX, -0.01, 0.4, -noiseRange, noiseRange);
+              const distortionY = map(noiseY, -0.02, 0.4, -noiseRange, noiseRange);
               
               const newX = bigCoordinates[i][0] + distortionX;
               const newY = bigCoordinates[i][1] + distortionY;
@@ -140,7 +140,7 @@ const paper = require('paper');
             isStuck = false;
           };
           
-          const linkItems = document.querySelectorAll('.link', '#curse');
+          const linkItems = document.querySelectorAll('.link');
           linkItems.forEach(item => {
             item.addEventListener("mouseenter", handleMouseEnter);
             item.addEventListener("mouseleave", handleMouseLeave);

@@ -28,7 +28,7 @@ export default {
   computed: {
     activeIMG() {
       const nameIMG = this.selectedIMG;
-      return require(`../assets/image/${nameIMG}.png`);
+      return require(`../assets/image/img/${nameIMG}.png`);
     }
   },
 };
@@ -61,8 +61,10 @@ export default {
     }
 
     .imgSelected  {
+      opacity: 0;
       width: inherit;
       height: inherit;
+      background: black;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -95,10 +97,10 @@ export default {
     @keyframes glitchLeft {
       to { right: 8%; bottom: -1%;}
     }
-    @keyframes glitchRotate {
-      to {  transform: rotate(-30deg);}
-    }
+     @keyframes glitchRotate {
+       to {  transform: scale(0.9,0.8);}
+     }
     @keyframes glitchRotate_2 {
-      to {  transform: rotate(30deg);}
+      to {  transform: scale(1.8,1.9);}
     }
 </style>

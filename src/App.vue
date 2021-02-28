@@ -43,7 +43,7 @@ export default {
             window.id = setInterval(() =>{
             if(timeleft <= 0){
                 clearInterval(window.id)
-                this.tween.to(this.$refs.cdd,{y:-500,opacity:0, ease: "none"})  
+                this.tween.to(this.$refs.cdd,{y:-900,opacity:0, ease: "none", zIndex:-1000})  
                 this.noe = false
             }
             else {
@@ -104,11 +104,24 @@ export default {
 
 <style lang="scss">
 
-   ::-webkit-scrollbar {
-     display: none;
-     -ms-overflow-style: none;  /* IE and Edge */
-     scrollbar-width: none;  /* Firefox */
-     }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background: black;
+    
+  }
+  ::-webkit-scrollbar-thumb {
+    position: fixed;
+      background:#131313;
+      animation: animate 5s linear infinite; 
+    
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background:#00ffff;
+      animation: animate 5s linear infinite; 
+  }
   
   .noe{
     display: none;
@@ -144,15 +157,16 @@ export default {
 
 @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; /*vue transition animation*/
   
-  body{
+  html,body{
+    
       overflow-x: hidden;
       position: relative;
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       background-color: black;
-      cursor: none;
+      
   }
   #app{
     
@@ -179,9 +193,11 @@ export default {
   margin: 10px;
   text-decoration: none;
 }
-@media only screen and (max-width: 680px) {
-  html,body {
-    overflow-x: hidden;
+@media only screen and (max-width: 1124px) {
+    ::-webkit-scrollbar {
+    width: 2px;
+    height: 10px;
   }
+  
 }
 </style>
