@@ -42,7 +42,7 @@ export default {
         window.id = setInterval(() =>{
         if(timeleft <= 0){
           clearInterval(window.id)
-          this.tween.to(this.$refs.cdd,3,{y:-2000,opacity:0, ease: "none",})  
+          this.tween.to(this.$refs.cdd,3,{opacity:0, zIndex:-1, ease: "none",})  
           this.noe = false
         }
         else {
@@ -50,7 +50,7 @@ export default {
           this.noe = true
         }    
         timeleft -= 1
-        }, 2)
+        }, 170)
             
     }
   }
