@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {TimelineMax} from "gsap"
+import gsap from "gsap"
 import $ from 'jquery'
 
 export default {
@@ -24,7 +24,7 @@ export default {
 
     data(){
         return {
-            tween: new TimelineMax({force3D:true, repeat: -1, paused: false}),
+            tween: new gsap.timeline({force3D:true, repeat: -1, paused: false}),
             wrapper: $(".tickerWrapper"),
             endPos:null
 

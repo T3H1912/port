@@ -73,7 +73,7 @@
 
 <script>
 import Blob from '@/components/Blob.vue'
-import {TimelineMax} from "gsap";
+import gsap from "gsap";
 
 export default {
 
@@ -95,20 +95,20 @@ export default {
                item.addEventListener("mousemove", e => {
                let x = (window.innerWidth / 2 - e.pageX) / 20
                let y = (window.innerHeight / 2 - e.pageY) / 20
-               new TimelineMax()
+               new gsap.timeline()
               .set(text_, {rotateX: x, rotateY: y })
               })
              })
             
                 grigText.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(hover_, { color:'#00f7ff'})
                     })
                   })
                   grigText.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(hover_, { color:'#f403e0'})
                     })
                   })

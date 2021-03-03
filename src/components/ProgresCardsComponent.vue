@@ -52,7 +52,7 @@
             
 <script>
 //import RoolTextComponent from '@/components/RoolTextComponent.vue'
-import {TimelineMax} from "gsap";
+import gsap from "gsap";
 
 export default {
 
@@ -61,7 +61,7 @@ export default {
   },
 
     name:"PC",
-    static(){
+    data(){
       return{
         col_or:true
       }
@@ -95,7 +95,7 @@ export default {
               item.addEventListener("mousemove", e => {
               let x = (window.innerWidth / 2 - e.pageX) / 200
               let y = (window.innerHeight / 2 - e.pageY) / 200
-              new TimelineMax()
+              new gsap.timeline()
               .set(layer, {rotateX: y, rotateY: x })
               })
             })
@@ -111,7 +111,7 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(glowing, { color:'#fff',textShadow: "3px 3px px '#000'",})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -121,7 +121,7 @@ export default {
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -140,7 +140,7 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(glowing, { color:'#fff',})
                     .set(Image_1, {translateZ:100, rotateZ:0, x:0, y:30})
                     .set(Image_3, {translateZ:100, rotateZ:0, x:0, y:-40})
@@ -150,7 +150,7 @@ export default {
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new TimelineMax()
+                    new gsap.timeline()
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -168,7 +168,7 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new TimelineMax()
+                    new gsap.timeline()
                       .set(glowing, { color:'#fff',})
                       .set(Image_1, {translateZ:200, rotateZ:-6, x:60, y:90})
                       .set(Image_3, {translateZ:150, rotateZ:10, x:-60, y:90})
@@ -182,7 +182,7 @@ export default {
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new TimelineMax()
+                    new gsap.timeline()
                       .set(glowing, { color:'#242424'})
                       .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                       .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
