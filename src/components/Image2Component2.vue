@@ -1,37 +1,45 @@
 <template>
-    <div id="ImageC">
-      <div class="glitchIMG">
-        <img 
-          class="imgSelected imgSelected--1"
-          :src="activeIMG" 
-          :alt="selectedIMG"
-        >
-        <img 
-          class="imgSelected imgSelected--2"
-          :src="activeIMG" 
-          :alt="selectedIMG"
-        >
-      </div>
-    </div>
+  <div class="main-image">
+      <img :src="mainImageSrc"> 
+    <div class="image-list"></div>
+   <div v-for="img in images" :key="img" class="item"><img src="img.image"></div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: {
-    selectedIMG:String
-  },
-  data() {
+  name: 'Images',
+  data () {
     return {
-      
-    };
-  },
-  computed: {
-    activeIMG() {
-      const nameIMG = this.selectedIMG;
-      return require(`../assets/image/img/${nameIMG}.png`);
+      images: [],
+      mainImageSrc: null
     }
   },
-};
+  methods: {
+  },
+  created () {
+    let self = this
+    this.images = [
+       {
+          id: '23',
+          image: 'http://example.com/img.jpg'
+       },
+       {
+          id: '32',
+          image: 'http://example.com/img.jpg'
+       },
+       {
+          id: '45',
+          image: 'http://example.com/img.jpg'
+       },
+    ]
+
+    setInterval(function(){ 
+        self.mainImageSrc = self.images[Math.floor(Math.random()*self.images.length)].image;
+    }, 5000);
+
+  }
+}
 </script>
 
 <style lang="scss" scoped> 
@@ -42,7 +50,6 @@ export default {
       justify-content: $jus;
       align-items: $ali;
       flex-wrap: $wrap;
-      background-color: black;
     }
 
     #ImageC {
@@ -54,51 +61,19 @@ export default {
     }
 
     .glitchIMG {
-      width: 100vw;
-      height: 100vh;
+      width: 80vw;
+      height: 70vh;
       position: relative; 
       overflow: hidden;
     }
 
     .imgSelected  {
-      width: 100vw;
+      width: 80vw;
       height: auto;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
 
-      &--1:hover {
-        background-color: rgb(0, 0, 0);
-        background-blend-mode: luminosity;
-        animation:blink 0.2s linear infinite,
-                  glitchRight 3s linear infinite,
-                  glitchRotate_2 3s linear infinite;
-      }
-      &--2:hover {
-        background-color: rgb(0, 0, 0);
-        background-blend-mode: overlay;
-        animation:blink 0.2s linear infinite,
-                  glitchLeft 3s linear infinite,
-                  glitchRotate 3s linear infinite;
-      }
-    }
-    @keyframes blink {
-      0% { opacity: 0.25; }
-      70%, 100% { opacity: 0; }
-    }
-
-    @keyframes glitchRight {
-      to { left: 8%; top: -3%; }
-    }
-
-    @keyframes glitchLeft {
-      to { right: 8%; bottom: -1%;}
-    }
-    @keyframes glitchRotate {
-      to {  transform: rotate(-30deg);}
-    }
-    @keyframes glitchRotate_2 {
-      to {  transform: rotate(30deg);}
     }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div id="home" ref="hme"> 
     
-    <div class="video_container" :class="{change_color: scrollPosition > 100}">
-      <video  id="back_video" autoplay muted loop>
+    <div class="video_container">
+      <video  id="back_video" autoplay playsinline muted loop>
         <source src="https://www.dropbox.com/s/c5j0la3cp0hwuaa/Tunel_walking_sci-fi.mp4?dl=1" type="video/mp4">
       </video> 
     </div>
@@ -39,18 +39,48 @@
       <section class="progresCardsComponent ">
         <ProgresCardsComponent/> 
       </section>
-      
-      
 
-      
+      <section class="desComponent">
+        <DesComponent/>-
+      </section> 
 
+      <section class="desComponent">
+        <RoolTextComponent rollText="Thanks for watching"/>-
+      </section> 
 
-        <!-- <section class="imageComponent">
-          <ImageComponent selectedIMG="ks"/>
-        </section> -->
-      
-       
-      
+    <!-- <div class="container con_3"> -->
+      <!-- <div class="row justify-content center contact_row">
+        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 contact">
+          <h2 class=" Cname">Tomas Komrska</h2>
+          <h2 class=" Cemail"><strong>tkomrska@seznam.cz</strong></h2> 
+          <h2 class=" CC"><strong>+420 721 019 042</strong></h2>
+        </div>
+        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 imageGlitch">
+            <ImageComponent selectedIMG="hlpolovina_2"/>
+            <img class="img_1" src="@/assets/image/img/hlpolovina_2.png" alt="hlava_polovina">
+        </div>
+        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12">
+          <h2 class="web_site">The website is still under construction. Made with Vue</h2> 
+        </div>
+      </div> -->
+        <!-- <div class="row">
+          <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 contact">
+        <form class="contact-form" @submit.prevent="sendEmail">
+          <label>Name</label>
+          <input type="text" name="name">
+          <label>Email</label>
+          <input type="email" name="email">
+          <label>Message</label>
+          <textarea name="message"></textarea>
+          <input type="submit" value="Send">
+        </form>
+          </div>
+        </div>
+      </div>  -->
+
+      <section class="EmailComponent">
+        <EmailComponent />-
+      </section>
     </section>
   </div>
 </template>
@@ -62,8 +92,11 @@ import AboutComponent from '@/components/AboutComponent.vue'
 import ProgresCardsComponent from '@/components/ProgresCardsComponent.vue'
 import GlitchComponent from '@/components/GlitchComponent.vue'
 import VideoVueComponent from '@/components/VideoVueComponent.vue'
-//import ImageComponent from '@/components/ImageComponent.vue'
+import DesComponent from '@/components/DesComponent.vue'
+import RoolTextComponent from '@/components/RoolTextComponent.vue'
+import EmailComponent from '@/components/EmailComponent.vue'
 
+//import emailjs from 'emailjs-com'
 
 export default {
   name: 'Home',
@@ -72,12 +105,32 @@ export default {
     GlitchComponent,
     ProgresCardsComponent,
     VideoVueComponent,
-    //ImageComponent,
     NameComponent,
-    AboutComponent
+    AboutComponent,
+    DesComponent,
+    RoolTextComponent,
+    EmailComponent
   },
   title: 'Tomas Komrska',
   
+  // data() {
+  //   return {
+  //   }
+  // },
+  //     methods: {
+  //     sendEmail: (e) => {
+  //     emailjs.sendForm("service_tqfvylm","template_1oi0pyr", e.target, 'user_YFk8wQrRChrWAEgMK1DaH', {
+        
+  //     })
+  //       .then((result) => {
+  //           console.log('SUCCESS!', result.status, result.text);
+  //       }, (error) => {
+  //           console.log('FAILED...', error);
+  //       });
+  //   },
+    // name: '',
+    // email: '',
+    // message: ''
   
 }             
 </script>
@@ -90,14 +143,6 @@ export default {
     width: 100vw;
     height: 100%;
     background-color: black;
-    
-    .imageComponent {
-      transform: scale(1.3,1.3);
-
-    }
-    .imageComponent:hover {
-      background-color: rgba(0, 0, 0, 0.486);
-    }
       
         #back_video {
           position: relative;
@@ -196,15 +241,7 @@ export default {
             font-family: 'Orbitron', sans-serif;
             animation: glow 1s ease-in-out infinite alternate;
             }
-            @keyframes glow {
-            from {
-              text-shadow: 0 0 10px rgb(9, 235, 178), 0 0 20px rgb(9, 235, 178),
-            }
             
-            to {
-              text-shadow: 0 0 20px rgb(9, 235, 178), 
-            }
-          }
         }
         .art{
           position: absolute;
@@ -236,34 +273,112 @@ export default {
           position: relative;
           width: 100vw;
           height: 100%;
+          background-color: black;
           z-index: 1;
         }
-    
-    // .roolText {
-    //   position: relative ;
-    //   white-space: nowrap;
-    //   top: 94rem;
-    //   z-index: -1;
-    // }
-    @keyframes animate_2 {
-            0%,100%
-            {
-              filter: hue-rotate(0);
+        .con_3 {
+          position: relative;
+          justify-content: center;
+          text-align: center;
+          display: flex;
+          .contact {
+            position: relative;
+            font-size: calc(6px + 1vw);
+            .Cname {
+              color: #636363;
+              font-family: 'Montserrat', sans-serif;
             }
-            50%
-            {
-              filter: hue-rotate(-0.15turn);
+            .Cemail {
+              color: #00f7ff;
+              font-size: calc(6px + 1.5vw);
             }
+            .CC {
+              color: #00f7ff;
+              font-size: calc(6px + 1.5vw);
+            }
+
+          }
+          .img_1 {
+            position: relative;
+            margin: 2vw;
+            width: calc(30px + 20vw);
+            left: 0;
+            top:0;
+            height: auto;
+          }
+          .web_site {
+            font-size: calc(6px + 0.4vw);
+          }
+
+
+          .con_3 {
+  display: block;
+  margin:auto;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 50%;
+}
+
+label {
+  float: left;
+}
+
+input[type=text], [type=email], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
         }
-    @keyframes glow_2 {
-         from {
-           text-shadow: 0 0 10px #00f7ff, 0 0 20px #f700ff,
-         }
-        
-         to {
-           text-shadow: 0 0 20px #f700ff, 
-         }
-      }
+
+        @keyframes glow {
+            from {
+              text-shadow: 0 0 10px rgb(9, 235, 178), 0 0 20px rgb(9, 235, 178),
+            }
+            
+            to {
+              text-shadow: 0 0 20px rgb(9, 235, 178), 
+            }
+          }
+          @keyframes animate_2 {
+                  0%,100%
+                  {
+                    filter: hue-rotate(0);
+                  }
+                  50%
+                  {
+                    filter: hue-rotate(-0.15turn);
+                  }
+              }
+          @keyframes glow_2 {
+              from {
+                text-shadow: 0 0 10px #00f7ff, 0 0 20px #f700ff,
+              }
+              
+              to {
+                text-shadow: 0 0 20px #f700ff, 
+              }
+            }
 
       //.......................................MEDIA.................................
       //.......................................MEDIA.................................
@@ -320,11 +435,13 @@ export default {
           transform: translate(-50%,0%);
          }
       }
-
-        
-        
-
-  
-  
+      // @media only screen and (aspect-ratio: 16/9) {
+      //   #back_video {
+      //     position: relative;
+      //     min-width:237vw; 
+      //     min-height: 100hv;
+      //     transform: translate(-50%,0%);
+      //    }
+      // }
   }
 </style>

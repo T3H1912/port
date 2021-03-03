@@ -2,7 +2,7 @@
   <div id="about">
 
         <div class="video_2">
-          <video id="video_2" autoplay muted loop>
+          <video id="video_2" autoplay playsinline muted loop>
             <source src="https://www.dropbox.com/s/nk8vf0iqcaqwm3j/stutzdukt.mp4?dl=1" type="video/mp4" >
           </video>
         </div>
@@ -40,7 +40,7 @@ export default {
       position: relative;
       width: 120vw;
       height: 120vh;
-      z-index:-1;
+      z-index:0;
     }
 
     .con_2 {

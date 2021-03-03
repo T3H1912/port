@@ -40,8 +40,8 @@ const paper = require('paper');
         paper.setup(canvas);
         const strokeColor = "#00ffe7";
         const strokeWidth = 1;
-        const segments = 8;
-        const radius = 15;
+        const segments = 12;
+        const radius = 30;
         
         const noiseScale = 150; 
         const noiseRange = 4; 

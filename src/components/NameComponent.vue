@@ -79,7 +79,7 @@ export default {
     animHead(){
             const head = this.$refs.head
 
-            console.clear();
+            //console.clear();
 
             //matchMediaList
             const smallMediaQuery = window.matchMedia("(max-width:991px)"),
@@ -103,20 +103,16 @@ export default {
                     .to(head,1, {opacity:1, ease: "none"}, 10)
                 
                 
-                console.log('small')
+               // console.log('small')
               }
             };
 
             //MEDIUM 768-991
             // const mediumListener = function(e){
-            //   if(e.matches){
-                
-                    
+            //   if(e.matches){      
             //     console.log('medium')
             //   }
-            // };
-
-            //LARGE 992px
+            // };GE 992px
             const largeListener = function(e){
               if(e.matches){
                const container = document.querySelectorAll(".con_2")
@@ -136,7 +132,7 @@ export default {
                     .to(head,1, {opacity:0, ease: "none"}, 10)
                   })
                 })
-                console.log('large')
+                //console.log('large')
               }
             };
 
@@ -209,7 +205,7 @@ export default {
             max-width: 81vw;
             max-height: auto;
             right: -1%;
-            z-index: 1;
+            z-index: -1;
           }
           .img_hlava_3 {
             position: absolute;
@@ -220,7 +216,7 @@ export default {
             max-height: auto;
             right: -1%;
             opacity: 0;
-            z-index: 1;
+            z-index: 0;
           }
     }
       // .................................... start text name................................

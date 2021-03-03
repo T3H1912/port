@@ -50,21 +50,22 @@ export default {
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
     }
 
-    .glitchIMG {
-      width: 80vw;
-      height: 80vh;
-      position: relative; 
-      overflow: hidden;
-    }
+    // .glitchIMG {
+    //   opacity: 1;
+    //   width: 30vw;
+    //   height: 40vh;
+    //   position: relative; 
+    //   overflow: hidden;
+    // }
 
     .imgSelected  {
-      opacity: 0;
-      width: inherit;
-      height: inherit;
-      background: black;
+      position: relative;
+      opacity: 1;
+      width: 20vw;
+      height: auto;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -91,16 +92,16 @@ export default {
     }
 
     @keyframes glitchRight {
-      to { left: 8%; top: -3%; }
+      to { left: 3%; top: -3%; }
     }
 
     @keyframes glitchLeft {
-      to { right: 8%; bottom: -1%;}
+      to { right: 3%; bottom: -1%;}
     }
      @keyframes glitchRotate {
        to {  transform: scale(0.9,0.8);}
      }
     @keyframes glitchRotate_2 {
-      to {  transform: scale(1.8,1.9);}
+      to {  transform: scale(1.8,2.4);}
     }
 </style>

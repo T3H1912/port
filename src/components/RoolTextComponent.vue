@@ -1,11 +1,9 @@
 <template>
   <div id="Name">
-    <div class="tickerwrapper">
+    <div class="tickerWrapper">
    <ul class='list'>
       <li class='listitem'>
-        <span>sfhsdoivnosidvnoisndvoindsovin sdiovnsoidnvosdivn</span>
-        <span>sfhsdoivnosidvnoisnd voindsovinsdiovnsoidnvosdivn</span>
-        <span>sfhsdoivnosidvnoisnd voindsovinsdiovnsoidnvosdivn</span>
+        <span>{{rollText}}</span>
       </li>
   </ul>
 </div> 
@@ -18,12 +16,16 @@ import {TimelineMax} from "gsap"
 import $ from 'jquery'
 
 export default {
-    name:"Name",
+    name:"Name", 
+
+    props: {
+      rollText: String
+    },
 
     data(){
         return {
             tween: new TimelineMax({force3D:true, repeat: -1, paused: false}),
-            wrapper: $(".tickerwrapper"),
+            wrapper: $(".tickerWrapper"),
             endPos:null
 
         }
@@ -37,7 +39,7 @@ export default {
     methods: {
         init(){
 
-            const $tickerWrapper = $(".tickerwrapper")
+            const $tickerWrapper = $(".tickerWrapper")
             const $list = $tickerWrapper.find("ul.list");
             const $clonedList = $list.clone();
             let listWidth = 100;
@@ -71,9 +73,7 @@ export default {
 
 <style lang="scss" scoped>
     
-    .tickerwrapper {
-            width: 100%;
-            height: 30vw;
+    .tickerWrapper {
             text-align: center;
             position:relative;
             overflow: hidden; 
@@ -113,14 +113,14 @@ export default {
             text-shadow: 0 0 20px rgb(26, 26, 26), 
             }
         }
-    @media only screen and (min-width: 1401px) {
-      .tickerwrapper {
-        font-size: calc(8px + 5.8vw);
-      }
-    }
-    @media only screen and (min-width: 1921px) {
-      .tickerwrapper {
-        font-size: calc(8px + 5vw);
-      }
-    }    
+        @media only screen and (min-width: 1401px) {
+          .tickerWrapper {
+            font-size: calc(8px + 5.8vw);
+          }
+        }
+        @media only screen and (min-width: 1921px) {
+          .tickerWrapper {
+            font-size: calc(8px + 5vw);
+          }
+        }    
 </style>

@@ -2,9 +2,9 @@
   <div id="ProgressCard" class="way">
       <div class="container-fluid con_ " @mouseenter="gDown" @mouseleave="gUp">
         <div class="componentRoll">
-            <div class="roolTextComponent">
+            <!-- <div class="roolTextComponent">
               <RoolTextComponent/> 
-            </div>
+            </div> -->
         </div>
         <div class="row ">
 
@@ -17,59 +17,51 @@
 
           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid " > 
               <div id="M_L1" class="layer">
-                      <img class="img_1" src="@/assets/image/prog.png" alt="">
+                      <img class="img_1" src="@/assets/image/prog.png" alt="creative">
                     <div class="info info_L">
                       <div class="glowing">
                         <p id="title" class="title">Design</p>
                         <p id="title2">CREATIVE</p>
                         <p id="title3">INOVATIVE DESIGN</p>
                       </div>
-                      <div class="ff_123R s_1">
-                          <p id="ff_12">Show things in a fully new way. Sometimes being successful means being different </p>
+                      <div class="ff_12R s_1">
+                          <p id="ff_12">Show things in a fully new way.</p>
                       </div>
                     </div>
               </div>
             </div>  
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid ">
               <div id="M_L2" class="layer">
-                      <img class="img_3" src="@/assets/image/pr_2.png" alt="">
+                      <img class="img_3" src="@/assets/image/pr_2.png" alt="creative">
                   <div class="info info_P">
                       <div class="glowing">
                         <p id="title" class="title">Programming</p>
                         <p id="title2">INTUITIVE</p>
                         <p id="title3">TECHNOLOGY.</p>
                       </div>
-                      <div class="ff_123R s_2">
-                          <p id="ff_12">sidfhsudhf sdkfhhshf sdifshdikf sdkfhhskdjfksdhfsd fskjdfbksjdhfsdf sdjkfsjdhf </p>
+                      <div class="ff_12R ff_12_R s_2">
+                          <p id="ff_12">Sometimes being successful means <br> being different</p>
                       </div>
                   </div>
               </div>
             </div>
-
-        </div>
-    </div>
-    <div class="componentImg">
-          <div class="ImageComponent">
-            <Image2Component2 selectedIMG="VT"/> 
           </div>
       </div>
   </div>
 </template>
-
+            
 <script>
-import RoolTextComponent from '@/components/RoolTextComponent.vue'
-import Image2Component2 from '@/components/Image2Component2.vue'
-import gsap from "gsap";
+//import RoolTextComponent from '@/components/RoolTextComponent.vue'
+import {TimelineMax} from "gsap";
 
 export default {
 
   components: {
-    RoolTextComponent,
-    Image2Component2
+    //RoolTextComponent,
   },
 
     name:"PC",
-    data(){
+    static(){
       return{
         col_or:true
       }
@@ -97,19 +89,17 @@ export default {
             const r_2 = document.querySelector(".r_2")
             const r_3 = document.querySelector(".r_3")
             const r_4 = document.querySelector(".r_4")
-            const roolTextComponent = document.querySelector(".roolTextComponent")
             
 
             container.forEach(item => {
               item.addEventListener("mousemove", e => {
               let x = (window.innerWidth / 2 - e.pageX) / 200
               let y = (window.innerHeight / 2 - e.pageY) / 200
-              new gsap.timeline()
+              new TimelineMax()
               .set(layer, {rotateX: y, rotateY: x })
               })
             })
             
-            console.clear();
 
             //Create matchMediaList
             const smallMediaQuery = window.matchMedia("(max-width:767px)"),
@@ -121,7 +111,7 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new gsap.timeline()
+                    new TimelineMax()
                     .set(glowing, { color:'#fff',textShadow: "3px 3px px '#000'",})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -131,7 +121,7 @@ export default {
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new gsap.timeline()
+                    new TimelineMax()
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -141,7 +131,7 @@ export default {
                     })
                   })
                 
-                console.log('small')
+               // console.log('small')
               }
             };
 
@@ -150,7 +140,7 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new gsap.timeline()
+                    new TimelineMax()
                     .set(glowing, { color:'#fff',})
                     .set(Image_1, {translateZ:100, rotateZ:0, x:0, y:30})
                     .set(Image_3, {translateZ:100, rotateZ:0, x:0, y:-40})
@@ -160,7 +150,7 @@ export default {
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new gsap.timeline()
+                    new TimelineMax()
                     .set(glowing, { color:'#242424'})
                     .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
                     .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
@@ -169,7 +159,7 @@ export default {
                     .set(layer, {rotateX: 0, rotateY: 0 })
                     })
                   })
-                console.log('medium')
+                //console.log('medium')
               }
             };
 
@@ -178,36 +168,34 @@ export default {
               if(e.matches){
                 container.forEach(item => {
                     item.addEventListener("mouseenter", () => {  
-                    new gsap.timeline()
-                    .set(glowing, { color:'#fff',})
-                    .set(Image_1, {translateZ:200, rotateZ:-6, x:60, y:90})
-                    .set(Image_3, {translateZ:150, rotateZ:10, x:-60, y:90})
-                    .set(s_1, { translateZ:60, color: '#f403e0',})
-                    .set(s_2, { translateZ:60, color: '#f403e0',})
-                    .set(r_1, {scaleX:0.4, x:-270, y:250, opacity:0, backgroundColor:"#163328"})
-                    .set(r_2, {scaleX:0.4,scaleY:0.01,y:-140,opacity:0,  x:-270, backgroundColor:"#163328"})
-                    .set(r_3, {scaleX:0.4, x:270, y:250,opacity:0, backgroundColor:"#163328"})
-                    .set(r_4, {scaleX:0.4,scaleY:0.01,y:-140, x:270,opacity:0, backgroundColor:"#163328"})
-                    .set(roolTextComponent, {opacity:1,})
+                    new TimelineMax()
+                      .set(glowing, { color:'#fff',})
+                      .set(Image_1, {translateZ:200, rotateZ:-6, x:60, y:90})
+                      .set(Image_3, {translateZ:150, rotateZ:10, x:-60, y:90})
+                      .set(s_1, { translateZ:60, color: '#f403e0',})
+                      .set(s_2, { translateZ:60, color: '#f403e0',})
+                      .set(r_1, {scaleX:0.4, x:-270, y:250, opacity:0, backgroundColor:"#163328"})
+                      .set(r_2, {scaleX:0.4,scaleY:0.01,y:-140,opacity:0,  x:-270, backgroundColor:"#163328"})
+                      .set(r_3, {scaleX:0.4, x:270, y:250,opacity:0, backgroundColor:"#163328"})
+                      .set(r_4, {scaleX:0.4,scaleY:0.01,y:-140, x:270,opacity:0, backgroundColor:"#163328"})
                     })
                   })
                   container.forEach(item => {
                     item.addEventListener("mouseleave", () => {
-                    new gsap.timeline()
-                    .set(glowing, { color:'#242424'})
-                    .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
-                    .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
-                    .set(s_1, { translateZ:0, color: '#242424',})
-                    .set(s_2, { translateZ:0, color: '#242424',})
-                    .set(layer, {rotateX: 0, rotateY: 0 })
-                    .set(r_1, {scaleX:1, x:0, y:0, opacity:1, backgroundColor:"#00f7ff"})
-                    .set(r_2, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
-                    .set(r_3, {scaleX:1, x:0, y:0,opacity:1, backgroundColor:"#00f7ff"})
-                    .set(r_4, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
-                    .set(roolTextComponent, {opacity:0,})
+                    new TimelineMax()
+                      .set(glowing, { color:'#242424'})
+                      .set(Image_1, {translateZ:0, rotateZ:0, x:0, y:0})
+                      .set(Image_3, {translateZ:0, rotateZ:0, x:0 , y:0})
+                      .set(s_1, { translateZ:0, color: '#242424',})
+                      .set(s_2, { translateZ:0, color: '#242424',})
+                      .set(layer, {rotateX: 0, rotateY: 0 })
+                      .set(r_1, {scaleX:1, x:0, y:0, opacity:1, backgroundColor:"#00f7ff"})
+                      .set(r_2, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
+                      .set(r_3, {scaleX:1, x:0, y:0,opacity:1, backgroundColor:"#00f7ff"})
+                      .set(r_4, {scaleX:1,scaleY:1,y:0, x:0,opacity:1, backgroundColor:"#00f7ff"})
                     })
                   })
-                console.log('large')
+                //console.log('large')
               }
             };
 
@@ -220,7 +208,7 @@ export default {
             smallListener(smallMediaQuery); 
             mediumListener(mediumMediaQuery); 
             largeListener(largeMediaQuery);
-        }
+        },
     }
 }
 </script>
@@ -228,13 +216,13 @@ export default {
 <style lang="scss" scoped>
 
 #ProgressCard {
-
+  
   .con_ {
     position: relative;
     perspective: 1000px;
     margin-top:20vw;
     width: 101vw;
-    height: 100vh;
+    height: auto;
     z-index: 2;
   }
   .componentRoll {
@@ -325,23 +313,16 @@ export default {
     position: relative;
     bottom: 6.5vh;
   }
-  .ff_123R {
-    padding: 2vw;
+  .ff_12R {
+    text-align: center;
     color: #242424;
-    font-family: 'Montserrat', sans-serif;
     font-size: calc(13px + 1vw);
     transition: all 0.75s ease-out;
     font-family: 'Orbitron', sans-serif;
   }
-  .componentImg {
-    position:relative;
-    transform: scale(1.6, 1.6);
-    bottom: 10vw;
-    right: 18%;
-    opacity: 0.3;
-    z-index: 1;
-    
+  #ff_12 {
   }
+  
         @keyframes animate_2 {
             0%,100%
             {
@@ -362,7 +343,7 @@ export default {
               filter: hue-rotate(0.95turn);
             }
         }
-@keyframes glow {
+        @keyframes glow {
          from {
            text-shadow: 0 0 10px #1d1d1d, 0 0 20px #000000,
          }
@@ -370,11 +351,20 @@ export default {
          to {
            text-shadow: 0 0 20px #161616, 
          }
-      }
+        }
+        @keyframes glow_2 {
+         from {
+           text-shadow: 0 0 4px #383838, 0 0 6px #4e4e4e,
+         }
+        
+         to {
+           text-shadow: 0 0 8px #000000, 
+         }
+        }
 
 
-//.................................MEDIA......................................
- //.......................................MEDIA.................................
+            //.................................MEDIA......................................
+      //.......................................MEDIA.................................
       //.......................................MEDIA.................................
       //.......................................MEDIA.................................
       //.......................................MEDIA.................................
@@ -382,6 +372,9 @@ export default {
       //.......................................MAX 480px.................................
 
       @media only screen  and (max-width: 480px) {
+        .text_ef{
+          opacity: 0;
+        }
 
         .container {
           position: relative;
@@ -426,6 +419,9 @@ export default {
       //.......................................MIN 576px MAX 575px.................................
 
       @media only screen and (min-width: 481px) and (max-width: 575px) {
+        .text_ef{
+          opacity: 0;
+        }
         .container {
           position: relative;
           width: 100%;
@@ -469,6 +465,9 @@ export default {
     //.......................................MIN 576px MAX 758px.................................
 
       @media only screen and (min-width: 576px) and (max-width: 757px) {
+        .text_ef{
+          opacity: 0;
+        }
         .container {
           position: relative;
           width: 100%;

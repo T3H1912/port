@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <ThreeC2/> -->
     <div id="load" ref="cdd">
         <div  id="countdown"></div>
     </div>
@@ -13,13 +12,12 @@
 </template>
 
 <script>
+
 import {initCursor} from '@/data/cursor.js'
 import {TimelineMax} from "gsap"
-//import ThreeC2 from '@/components/ThreeC2.vue'
+
 export default {
-  components:{
-    //ThreeC2
-  },
+
   name: "App",
   data(){
     
@@ -37,27 +35,26 @@ export default {
   updated(){
     this.cursor = new initCursor('#app')
   },
+
   methods: {
      init() {
-            var timeleft = 100
-            window.id = setInterval(() =>{
-            if(timeleft <= 0){
-                clearInterval(window.id)
-                this.tween.to(this.$refs.cdd,{y:-900,opacity:0, ease: "none", zIndex:-1000})  
-                this.noe = false
-            }
-            else {
-                document.getElementById("countdown").innerHTML = timeleft
-                this.noe = true
-            }    
-            timeleft -= 1
-            }, 5)
+       var timeleft = 100
+        window.id = setInterval(() =>{
+        if(timeleft <= 0){
+          clearInterval(window.id)
+          this.tween.to(this.$refs.cdd,3,{y:-2000,opacity:0, ease: "none",})  
+          this.noe = false
+        }
+        else {
+          document.getElementById("countdown").innerHTML = timeleft
+          this.noe = true
+        }    
+        timeleft -= 1
+        }, 2)
             
-     }
- }
+    }
+  }
 }
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -69,16 +66,15 @@ export default {
      width: 100vw;
      height: 100%;
      z-index: 1;
-    animation: animate_2 5s linear infinite;
+     animation: animate_2 5s linear infinite;
 
-     #countdown{
-       bottom: 2rem;
-         position: relative;
-         font-family: 'Orbitron', sans-serif;
-         //color:#000000;
-         font-size: 40vw;
-         animation: animate_2 5s linear infinite;
-         animation: glow 1s ease-in-out infinite alternate;
+    #countdown{
+      bottom: 2rem;
+      position: relative;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 40vw;
+      animation: animate_2 5s linear infinite;
+      animation: glow 1s ease-in-out infinite alternate;
      }
         @keyframes glow {
          from {
@@ -142,7 +138,7 @@ export default {
     background:red;
     }
     .cursor_canvas {
-      width: 100vw;
+      width: 100%vw;
       height: 100%;
       z-index: 12000;
     }
@@ -154,18 +150,17 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Quicksand&family=Raleway:wght@100&display=swap');
 @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; /*vue transition animation*/
   
   html,body{
     
       overflow-x: hidden;
-      position: relative;
       margin: 0;
       padding: 0;
-      width: 100%;
-      min-height: 100vh;
+      background: black;
       background-color: black;
+      cursor: none;
       
   }
   #app{
@@ -174,30 +169,23 @@ export default {
     width: 100%;
     height: 100vh;
     z-index: 1000;
+    background: black;
   }
 
-.nav{
-  position: relative;
-  z-index: 0;
-  transform: rotate(-90deg);
+  @media only screen and (max-width: 1124px) {
+      ::-webkit-scrollbar {
+      width: 2px;
+      height: 10px;
+    }
   
-}
-.nav.navigace {
-  transform: rotate(360deg);
-  position: absolute;
-  bottom: 600px;
-  left: 100px;
-}
-#routa{
-  padding: 10px;
-  margin: 10px;
-  text-decoration: none;
-}
-@media only screen and (max-width: 1124px) {
-    ::-webkit-scrollbar {
-    width: 2px;
-    height: 10px;
   }
+  @media only screen and (max-width: 991px) {
+     .cursor_point{
+      opacity: 0;
+     }
+     .cursor_canvas{
+       opacity: 0;
+     }
   
-}
+  }
 </style>
