@@ -1,8 +1,8 @@
 <template>
   <div id="Name">
-    <div class="tickerWrapper">
-   <ul class='list'>
-      <li class='listitem'>
+    <div class="wrap">
+   <ul class='teXt'>
+      <li class='teXtitem'>
         <span>{{rollText}}</span>
       </li>
   </ul>
@@ -25,7 +25,7 @@ export default {
     data(){
         return {
             tween: new gsap.timeline({force3D:true, repeat: -1, paused: false}),
-            wrapper: $(".tickerWrapper"),
+            wrapper: $(".wrap"),
             endPos:null
 
         }
@@ -39,31 +39,31 @@ export default {
     methods: {
         init(){
 
-            const $tickerWrapper = $(".tickerWrapper")
-            const $list = $tickerWrapper.find("ul.list");
-            const $clonedList = $list.clone();
-            let listWidth = 100;
+            const $wrap = $(".wrap")
+            const $teXt = $wrap.find("ul.teXt");
+            const $clonedteXt = $teXt.clone();
+            let teXtWidth = 100;
 
-            $list.find("li").each(function (i) {
-                listWidth += $(this, i).outerWidth(true);
+            $teXt.find("li").each(function (i) {
+                teXtWidth += $(this, i).outerWidth(true);
                 });
 
-            this.endPos = $tickerWrapper.width() + listWidth;
+            this.endPos = $wrap.width() + teXtWidth;
 
-            $list.add($clonedList).css({
-            "width" : listWidth + "px"
+            $teXt.add($clonedteXt).css({
+            "width" : teXtWidth + "px"
             });
 
-            $clonedList.addClass("cloned").appendTo($tickerWrapper);
+            $clonedteXt.addClass("cloned").appendTo($wrap);
 
             const tween = this.tween
             const time = 12;
 
-            tween.fromTo($list, time, {x:0}, { x: -listWidth, ease: "none"}, 0);
-            tween.fromTo($clonedList, time, {x:listWidth}, {x:0, ease: "none"}, 0);
-            tween.set($list, {x: listWidth});
-            tween.to($clonedList, time, {x: -listWidth, ease: "none"}, time);
-            tween.to($list, time, {x: 0, ease: "none"}, time);
+            tween.fromTo($teXt, time, {x:0}, { x: -teXtWidth, ease: "none"}, 0);
+            tween.fromTo($clonedteXt, time, {x:teXtWidth}, {x:0, ease: "none"}, 0);
+            tween.set($teXt, {x: teXtWidth});
+            tween.to($clonedteXt, time, {x: -teXtWidth, ease: "none"}, time);
+            tween.to($teXt, time, {x: 0, ease: "none"}, time);
                     
         } 
     }
@@ -73,11 +73,12 @@ export default {
 
 <style lang="scss" scoped>
     
-    .tickerWrapper {
+    .wrap {
             text-align: center;
             position:relative;
             overflow: hidden; 
             display: inline-block;
+            width: 100vw;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 2vw;
             font-size: calc(8px + 4vw);
@@ -89,19 +90,19 @@ export default {
             color: #ff00ea;
         }
 
-        ul.list {
-        position:relative;
-        display:inline-block;
-        list-style:none;
+        ul.teXt {
+          position:relative;
+          display:inline-block;
+          list-style:none;
         }
-        ul.list.cloned {
-        position:absolute;
-        top:0;
-        left:0;
+        ul.teXt.cloned {
+          position:absolute;
+          top:0;
+          left:0;
         }
-        ul.list li {
-        float: right;
-        padding-left:20px;
+        ul.teXt li {
+          float: right;
+          padding-left:20px;
         }
     
         @keyframes glow {
@@ -114,12 +115,12 @@ export default {
             }
         }
         @media only screen and (min-width: 1401px) {
-          .tickerWrapper {
+          .wrap {
             font-size: calc(8px + 5.8vw);
           }
         }
         @media only screen and (min-width: 1921px) {
-          .tickerWrapper {
+          .wrap {
             font-size: calc(8px + 5vw);
           }
         }    

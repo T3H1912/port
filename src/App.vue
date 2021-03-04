@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="load" ref="cdd">
-        <div  id="countdown"></div>
+        <div ref="cdd" id="countdown"></div>
     </div>
     <div :class="{noe}">
     <div id="cursor" class="cursor_point"></div>
@@ -42,7 +42,7 @@ export default {
         window.id = setInterval(() =>{
         if(timeleft <= 0){
           clearInterval(window.id)
-          this.tween.to(this.$refs.cdd,3,{opacity:0, zIndex:-1, ease: "none",})  
+          this.tween.to(this.$refs.cdd,3,{opacity:0, zIndex:-10000, ease: "none",})  
           this.noe = false
         }
         else {
@@ -50,7 +50,7 @@ export default {
           this.noe = true
         }    
         timeleft -= 1
-        }, 170)
+        }, 150)
             
     }
   }
@@ -60,12 +60,12 @@ export default {
 <style lang="scss" scoped>
 
  #load{
-     position: fixed;
+   position: absolute;
      text-align: center;
      background-color: #000000 ;
      width: 100vw;
      height: 100%;
-     z-index: 1;
+     z-index: -10;
      animation: animate_2 5s linear infinite;
 
     #countdown{
@@ -75,6 +75,7 @@ export default {
       font-size: 40vw;
       animation: animate_2 5s linear infinite;
       animation: glow 1s ease-in-out infinite alternate;
+      z-index: -1;
      }
         @keyframes glow {
          from {
@@ -101,10 +102,14 @@ export default {
 <style lang="scss">
 
   ::-webkit-scrollbar {
+    position: fixed;
     width: 10px;
     height: 20px;
+    z-index: 1000;
   }
   ::-webkit-scrollbar-track {
+    position: fixed;
+    z-index: 1000;
     background: black;
     
   }
@@ -112,10 +117,14 @@ export default {
     position: fixed;
       background:#131313;
       animation: animate 5s linear infinite; 
+      cursor: pointer;
+      z-index: 1000;
     
   }
   ::-webkit-scrollbar-thumb:hover {
+    position: fixed;
     background:#00ffff;
+    z-index: 1000;
       animation: animate 5s linear infinite; 
   }
   
@@ -138,7 +147,7 @@ export default {
     background:red;
     }
     .cursor_canvas {
-      width: 100%vw;
+      width: 100%;
       height: 100%;
       z-index: 12000;
     }
@@ -151,7 +160,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Quicksand&family=Raleway:wght@100&display=swap');
-@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; /*vue transition animation*/
+/*@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; vue transition animation*/
   
   html,body{
     
@@ -159,7 +168,6 @@ export default {
       margin: 0;
       padding: 0;
       background: black;
-      background-color: black;
       cursor: none;
       
   }
@@ -169,7 +177,6 @@ export default {
     width: 100%;
     height: 100vh;
     z-index: 1000;
-    background: black;
   }
 
   @media only screen and (max-width: 1124px) {

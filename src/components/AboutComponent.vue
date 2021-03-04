@@ -3,7 +3,7 @@
 
         <div class="video_2">
           <video id="video_2" autoplay playsinline muted loop>
-            <source src="https://www.dropbox.com/s/nk8vf0iqcaqwm3j/stutzdukt.mp4?dl=1" type="video/mp4" >
+            <source src="https://www.dropbox.com/s/kflr7dfqssn8fk1/animation.mp4?dl=1" type="video/mp4" >
           </video>
         </div>
         <div class="container-fluid con_2">
@@ -28,11 +28,6 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
 
 <style lang="scss" scoped>
   #about{  

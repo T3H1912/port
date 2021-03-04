@@ -29,7 +29,7 @@ export default {
 
             view.on({frame: onFrame,});
 
-            initializePath();
+            initializePath(); 
 
             function initializePath() {
             

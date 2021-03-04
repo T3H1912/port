@@ -1,9 +1,9 @@
 <template>
   <div id="home" ref="hme"> 
-    
-    <div class="video_container">
+    <!-- <ScrollCore class="scroll"/> -->
+    <div class="video_container" ref="vB">
       <video  id="back_video" autoplay playsinline muted loop>
-        <source src="https://www.dropbox.com/s/c5j0la3cp0hwuaa/Tunel_walking_sci-fi.mp4?dl=1" type="video/mp4">
+        <source src="https://www.dropbox.com/s/46t5ku4bz69lnem/Tunel_walking_sci-fi_2.mp4?dl=1" type="video/mp4">
       </video> 
     </div>
 
@@ -19,6 +19,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 art">
           <h3 class="PodText">ART, IDEAS</h3>
         </div>
+
       </div>   
     </div>
 
@@ -48,39 +49,20 @@
         <RoolTextComponent rollText="Thanks for watching"/>-
       </section> 
 
-    <!-- <div class="container con_3"> -->
-      <!-- <div class="row justify-content center contact_row">
-        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 contact">
-          <h2 class=" Cname">Tomas Komrska</h2>
-          <h2 class=" Cemail"><strong>tkomrska@seznam.cz</strong></h2> 
-          <h2 class=" CC"><strong>+420 721 019 042</strong></h2>
-        </div>
-        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 imageGlitch">
-            <ImageComponent selectedIMG="hlpolovina_2"/>
-            <img class="img_1" src="@/assets/image/img/hlpolovina_2.png" alt="hlava_polovina">
-        </div>
-        <div class="col-12-xl col-lg-12 col-md-12 col-sm-12">
-          <h2 class="web_site">The website is still under construction. Made with Vue</h2> 
-        </div>
-      </div> -->
-        <!-- <div class="row">
-          <div class="col-12-xl col-lg-12 col-md-12 col-sm-12 contact">
-        <form class="contact-form" @submit.prevent="sendEmail">
-          <label>Name</label>
-          <input type="text" name="name">
-          <label>Email</label>
-          <input type="email" name="email">
-          <label>Message</label>
-          <textarea name="message"></textarea>
-          <input type="submit" value="Send">
-        </form>
-          </div>
-        </div>
-      </div>  -->
-
       <section class="EmailComponent">
         <EmailComponent />-
       </section>
+      <b-container>
+        <b-row>
+          <b-col lg="12" md="12" sm="12" class="footer">
+            <h4 class="footer_H">
+              <img class="img_3" src="@/assets/image/logo.png" alt="creative">
+              &nbsp; The web is still under construction. Made with Vue. Tomas Komrska &nbsp; 
+              <img class="img_3" src="@/assets/image/logo.png" alt="creative">
+            </h4>
+          </b-col>
+        </b-row>
+      </b-container>
     </section>
   </div>
 </template>
@@ -95,8 +77,8 @@ import VideoVueComponent from '@/components/VideoVueComponent.vue'
 import DesComponent from '@/components/DesComponent.vue'
 import RoolTextComponent from '@/components/RoolTextComponent.vue'
 import EmailComponent from '@/components/EmailComponent.vue'
+//import ScrollCore from '@/components/ScrollCore.vue'
 
-//import emailjs from 'emailjs-com'
 
 export default {
   name: 'Home',
@@ -109,29 +91,10 @@ export default {
     AboutComponent,
     DesComponent,
     RoolTextComponent,
-    EmailComponent
+    EmailComponent,
+    //ScrollCore
   },
   title: 'Tomas Komrska',
-  
-  // data() {
-  //   return {
-  //   }
-  // },
-  //     methods: {
-  //     sendEmail: (e) => {
-  //     emailjs.sendForm("service_tqfvylm","template_1oi0pyr", e.target, 'user_YFk8wQrRChrWAEgMK1DaH', {
-        
-  //     })
-  //       .then((result) => {
-  //           console.log('SUCCESS!', result.status, result.text);
-  //       }, (error) => {
-  //           console.log('FAILED...', error);
-  //       });
-  //   },
-    // name: '',
-    // email: '',
-    // message: ''
-  
 }             
 </script>
 
@@ -154,121 +117,85 @@ export default {
           width:100vw; 
           height: 100%;
           opacity: 1;
-          transition: all 1s ease-out;
           z-index: 0;
-          animation: glow_2 1s ease-in-out infinite alternate;
         }
-      
-        .red{
-          position: absolute;
-          justify-content: center;
-          z-index: 0;
+        // .scroll {
+        //   position: fixed;
+        //   z-index: 100;
+        // }
+        .home {
+          text-align: center;
 
-          #IconNav{
-            position: fixed;
-            justify-content: center;
+          .blkb{
+            position: absolute;
             margin: 0;
             padding: 0;
-            top: 10%;
-            left: 48%;
-            color: transparent;
+            top: 30%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            font-size: calc(10px + 4.2vw);
             z-index: 0;
-            animation: glow 1s ease-in-out infinite alternate;
 
-          }
-        }
-        .grn{
-          position: absolute;
-          display: block;
-          padding: 0;
-          margin: 0;
-          width: 30vw;
-          height: 100vh;
-          top: 0%;
-          left: 40%;
-          transform: translate(50%, 0%);
-          background-size: 28rem 100vh;
-          background-repeat: no-repeat;
-          z-index: -1;
+            .NadText{
+              position: relative;
+              margin: 0;
+              padding: 0;
+              left:0;
+              letter-spacing: 5vw;
+              font-size: calc(14px + 1.8vw);
+              font-weight: 100;
+              font-family: 'Montserrat', sans-serif;
+              color: #00f7ff;
 
-        }
-        .blkb{
-          position: absolute;
-          text-align: center;
-          margin: 0;
-          padding: 0;
-          top: 30%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 0;
-
-          .NadText{
-            position: relative;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            left:0;
-            text-transform: uppercase;
-            letter-spacing: 5vw;
-            font-size: calc(14px + 1.8vw);
-            font-weight: 100;
-            font-family: 'Montserrat', sans-serif;
-            color: #00f7ff;
-
-          }
-        }
-        .blk{
-          position: absolute;
-          margin: 0;
-          padding: 0;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 0;
-          
-          .name{
-            position: relative;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            left:0;
-            text-transform: uppercase;
-            letter-spacing: 5vw;
-            font-size: calc(8px + 11vw);;
-            color:transparent;
-            font-family: 'Orbitron', sans-serif;
-            animation: glow 1s ease-in-out infinite alternate;
             }
-            
-        }
-        .art{
-          position: absolute;
-          text-align: center;
-          margin: 0;
-          padding: 0;
-          top: 70%;
-          left: 0;
-          transform: translate(-22%, -50%);
-          z-index: 0;
-
-          .PodText{
-            position: relative;
-            text-align: center;
+          }
+          .blk{
+            position: absolute;
             margin: 0;
             padding: 0;
-            left:0;
-            text-transform: uppercase;
-            letter-spacing: 1vw;
-            font-size: calc(14px + 1.8vw);
-            font-weight: 100;
-            font-family: 'Montserrat', sans-serif;
-            color: #00f7ff;
-
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            
+            .name{
+              position: relative;
+              margin: 0;
+              padding: 0;
+              left:0;
+              text-transform: uppercase;
+              letter-spacing: 5vw;
+              font-size: calc(8px + 11vw);;
+              color:transparent;
+              font-family: 'Orbitron', sans-serif;
+              animation: glow 1s ease-in-out infinite alternate;
+              }
+              
           }
-          //......................................section........................... 
-        }
+          .art{
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 70%;
+            left: 0;
+            transform: translate(-22%, -50%);
+            z-index: 0;
+
+            .PodText{
+              position: relative;
+              margin: 0;
+              padding: 0;
+              left:0;
+              text-transform: uppercase;
+              letter-spacing: 1vw;
+              font-size: calc(14px + 1.8vw);
+              font-weight: 100;
+              font-family: 'Montserrat', sans-serif;
+              color: #00f7ff;
+
+            }
+            //......................................section........................... 
+          }
+        }  
         .components{
           position: relative;
           width: 100vw;
@@ -276,80 +203,22 @@ export default {
           background-color: black;
           z-index: 1;
         }
-        .con_3 {
-          position: relative;
-          justify-content: center;
+        .footer {
+          background: black;
+          padding: 0;
+          margin: 0;
           text-align: center;
-          display: flex;
-          .contact {
-            position: relative;
-            font-size: calc(6px + 1vw);
-            .Cname {
-              color: #636363;
-              font-family: 'Montserrat', sans-serif;
-            }
-            .Cemail {
-              color: #00f7ff;
-              font-size: calc(6px + 1.5vw);
-            }
-            .CC {
-              color: #00f7ff;
-              font-size: calc(6px + 1.5vw);
-            }
 
+          .footer_H {
+            font-size: calc(6px + 0.3vw)
           }
-          .img_1 {
-            position: relative;
-            margin: 2vw;
-            width: calc(30px + 20vw);
-            left: 0;
-            top:0;
+          .img_3 {
+            width: 0.9vw;
             height: auto;
           }
-          .web_site {
-            font-size: calc(6px + 0.4vw);
-          }
-
-
-          .con_3 {
-  display: block;
-  margin:auto;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  width: 50%;
-}
-
-label {
-  float: left;
-}
-
-input[type=text], [type=email], textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
         }
+
+        
 
         @keyframes glow {
             from {
@@ -360,25 +229,7 @@ input[type=submit]:hover {
               text-shadow: 0 0 20px rgb(9, 235, 178), 
             }
           }
-          @keyframes animate_2 {
-                  0%,100%
-                  {
-                    filter: hue-rotate(0);
-                  }
-                  50%
-                  {
-                    filter: hue-rotate(-0.15turn);
-                  }
-              }
-          @keyframes glow_2 {
-              from {
-                text-shadow: 0 0 10px #00f7ff, 0 0 20px #f700ff,
-              }
-              
-              to {
-                text-shadow: 0 0 20px #f700ff, 
-              }
-            }
+          
 
       //.......................................MEDIA.................................
       //.......................................MEDIA.................................
@@ -435,13 +286,5 @@ input[type=submit]:hover {
           transform: translate(-50%,0%);
          }
       }
-      // @media only screen and (aspect-ratio: 16/9) {
-      //   #back_video {
-      //     position: relative;
-      //     min-width:237vw; 
-      //     min-height: 100hv;
-      //     transform: translate(-50%,0%);
-      //    }
-      // }
   }
 </style>

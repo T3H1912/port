@@ -24,7 +24,7 @@
             </div>
           <div class="row">
             <div  class="link col-xl-12 col-lg-12 col-md-12 col-sm-12 getCVcoll">
-              <h4  class="note_click" >Note: touch</h4> 
+              <h4 @click="start" class="note_click" >Note: touch</h4> 
             </div>
             <div  class="link col-xl-12 col-lg-12 col-md-12 col-sm-12 getCVcoll">
               <h4 @mouseenter="start" class="link getCV" @click="onClick()">get CV</h4>
@@ -46,7 +46,7 @@
       </div>
        <div class="background">
             <img @mouseenter="start" class="img_hlava" ref="head_2" src="@/assets/image/hlava.png">
-            <img class="img_hlava_3" ref="head" src="@/assets/image/hlava_3.png">
+            <img class="img_hlava" ref="head" src="@/assets/image/hlava_3.png">
         </div>
     </div>
   </div>
@@ -148,7 +148,7 @@ export default {
 
         onClick() {
               axios({
-                    url: 'https://dl.dropbox.com/s/to5690x2tamxghf/pr_2.png?dl=1',
+                    url: 'https://dl.dropbox.com/s/7hgeljr8xjyfgxj/Tomas_Komrska_CV.pdf?dl=1',
                     method: 'GET',
                     responseType: 'blob',
                 }).then((response) => {
@@ -156,7 +156,7 @@ export default {
                      var fileLink = document.createElement('a');
 
                      fileLink.href = fileURL;
-                     fileLink.setAttribute('download', 'file.png');
+                     fileLink.setAttribute('download', 'Tomas_Komrska_CV.pdf');
                      document.body.appendChild(fileLink);
 
                      fileLink.click();
@@ -186,9 +186,7 @@ export default {
   display: flex;
   width: 100vw;
   height: 100vh;
- // background-color: red;
-
-  
+  text-align: center;
 
     .background{
       right: -1%;
@@ -197,7 +195,6 @@ export default {
       position: relative;
       z-index: 0;
       
-
         .img_hlava  {
             position: absolute;
             padding: 0;
@@ -207,27 +204,16 @@ export default {
             right: -1%;
             z-index: -1;
           }
-          .img_hlava_3 {
-            position: absolute;
-            padding: 0;
-            margin: 0;
-            //top:90vh;
-            max-width: 81vw;
-            max-height: auto;
-            right: -1%;
-            opacity: 0;
-            z-index: 0;
-          }
     }
       // .................................... start text name................................
     .row_flex{  
       position: relative;
       display: flex;
+      text-align: center;
       z-index: 2;
 
       .HiThere{
         position: relative;
-        text-align: center;
         margin: 0;
         padding: 0;
         left: 0;
@@ -237,7 +223,6 @@ export default {
 
         .HiThere_{
           position: relative;
-          text-align: center;
           margin: 0;
           padding: 0;
           left:0;
@@ -269,7 +254,6 @@ export default {
           left:0;
           top: 50vh;
           transform: rotate(-90deg);
-          text-transform: uppercase;
           letter-spacing: 1vw;
           font-size: calc(14px + 3vw);
           font-family: 'Montserrat', sans-serif;
@@ -279,7 +263,6 @@ export default {
       }
       .MyName1{
         position: relative;
-        text-align: center;
         margin: 0;
         padding: 0;
         transform: translate(10%, -100%);
@@ -287,12 +270,10 @@ export default {
 
         .MyName_1{
           position: relative;
-          text-align: center;
           margin: 0;
           padding: 0;
           top: 35vh;
           transform: rotate(-90deg);
-          text-transform: uppercase;
           letter-spacing: 1vw;
           font-size: calc(8px + 8vw);
           color:transparent;
@@ -307,7 +288,6 @@ export default {
       }
       .Designer{
         position: relative;
-        text-align: center;
         margin: 0;
         padding: 0;
         left: 0;
@@ -316,13 +296,11 @@ export default {
 
         .Designer_{
           position: relative;
-          text-align: center;
           margin: 0;
           padding: 0;
           left:0;
           top: 4vh;
           transform: rotate(-90deg);
-          text-transform: uppercase;
           font-size: calc(6px + 1.7vw);
           letter-spacing: 0.2vw;
           font-family: 'Montserrat', sans-serif;
@@ -336,9 +314,6 @@ export default {
      // .................................... tiping Note................................ 
       .note_click {
         position: relative;
-        text-align: center;
-        padding: 0;
-        margin: 0;
         opacity: 0;
         margin: 0;
         padding: 0;
@@ -348,12 +323,11 @@ export default {
         font-family: 'Montserrat', sans-serif;
         color:#00f7ff;
         z-index: 100;
-        animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate; 
         z-index: 100;
       }
       .getCVcoll {
         position: relative;
-        text-align: center;
         margin: 0;
         padding: 0;
         transform: translate(0%, -100%);

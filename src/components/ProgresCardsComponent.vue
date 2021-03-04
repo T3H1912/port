@@ -1,11 +1,6 @@
 <template>
   <div id="ProgressCard" class="way">
       <div class="container-fluid con_ " @mouseenter="gDown" @mouseleave="gUp">
-        <div class="componentRoll">
-            <!-- <div class="roolTextComponent">
-              <RoolTextComponent/> 
-            </div> -->
-        </div>
         <div class="row ">
 
           <div class="radiusBG">
@@ -51,16 +46,12 @@
 </template>
             
 <script>
-//import RoolTextComponent from '@/components/RoolTextComponent.vue'
 import gsap from "gsap";
 
 export default {
 
-  components: {
-    //RoolTextComponent,
-  },
-
     name:"PC",
+
     data(){
       return{
         col_or:true
@@ -101,12 +92,10 @@ export default {
             })
             
 
-            //Create matchMediaList
             const smallMediaQuery = window.matchMedia("(max-width:767px)"),
-                mediumMediaQuery = window.matchMedia("(min-width:768px) and (max-width:991px)"),
-                largeMediaQuery = window.matchMedia("(min-width:992px)");
+                  mediumMediaQuery = window.matchMedia("(min-width:768px) and (max-width:991px)"),
+                  largeMediaQuery = window.matchMedia("(min-width:992px)");
 
-            //Create listener for SMALL
             const smallListener = function(e){
               if(e.matches){
                 container.forEach(item => {
@@ -135,7 +124,6 @@ export default {
               }
             };
 
-            //Create listener for MEDIUM
             const mediumListener = function(e){
               if(e.matches){
                 container.forEach(item => {
@@ -163,7 +151,6 @@ export default {
               }
             };
 
-            //Create listener for Large
             const largeListener = function(e){
               if(e.matches){
                 container.forEach(item => {
@@ -199,12 +186,10 @@ export default {
               }
             };
 
-            //Add the listener to MediaQueryList
             smallMediaQuery.addListener(smallListener);
             mediumMediaQuery.addListener(mediumListener);
             largeMediaQuery.addListener(largeListener);
 
-            // Initialise onload
             smallListener(smallMediaQuery); 
             mediumListener(mediumMediaQuery); 
             largeListener(largeMediaQuery);
@@ -224,16 +209,6 @@ export default {
     width: 101vw;
     height: auto;
     z-index: 2;
-  }
-  .componentRoll {
-    position: relative;
-    .roolTextComponent {
-      position: absolute;
-      transition: all 2.5s ease-out;
-      width: 200vw;
-      left: 0;
-      opacity: 0;
-    }
   }
 
   .radiusBG {
@@ -319,8 +294,6 @@ export default {
     font-size: calc(13px + 1vw);
     transition: all 0.75s ease-out;
     font-family: 'Orbitron', sans-serif;
-  }
-  #ff_12 {
   }
   
         @keyframes animate_2 {

@@ -49,7 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 #menuEfect{
   position: relative

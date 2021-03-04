@@ -123,8 +123,6 @@ import emailjs from 'emailjs-com'
          #btn {
             font-size: 1.5rem;
             padding: 1rem 3rem;
-            
-            text-transform: uppercase;
         }
 
         .btn {
@@ -132,6 +130,7 @@ import emailjs from 'emailjs-com'
             background: transparent;
             border-radius: 0px;
             border-bottom: 2px solid #00f7ff;
+            color: #00f7ff;
             border-top:none;border-left:none;border-right:none;
             position: relative;
             overflow: hidden;
@@ -139,7 +138,9 @@ import emailjs from 'emailjs-com'
 
         .btn:hover {
             background: transparent;
-            border:transparent
+            color: #ff00f2;
+            border:transparent;
+            transition: all .75s ease-out;
         }
 
         .btn:before {

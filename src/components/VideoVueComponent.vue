@@ -18,11 +18,11 @@
                             <div :class="{ cursor }">&nbsp;</div>
                         </h1>
                     </div>
-                        <p  ref="not_" class="link clicNote" @mouseenter="touch" >Note: touch</p>
+                        <p  ref="not_" class="link clicNote" @click="touch" @mouseenter="touch" >Note: touch</p>
                     </div>     
                 </div>   
                     <div class=" note_video" >
-                        <div  class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 clicK">
+                        <div ref="not" class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 clicK">
                             <p  ref="not" class="link clicKc" @click="activ1" >Video: click</p>
                         </div>     
                     </div>
@@ -32,7 +32,7 @@
                     controls 
                     @mouseout="Leave"
                     >
-                    <source src="https://www.dropbox.com/s/o5lo18o6kc5xawq/My%20Video1.mp4?dl=1" type="video/mp4">
+                    <source src="https://www.dropbox.com/s/zei36tjydbzw6rt/vue_video.mp4?dl=1" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video> 
                 </div>
@@ -77,7 +77,7 @@ export default {
             
             this.gsap
             .to(this.$refs.vidd,{ x:-2000,opacity:0,},0)
-            .to(this.$refs.not,4,{x:-2000,opacity:0},0)
+            .to(this.$refs.not,{x:-2000,opacity:0},0)
             .to(this.$refs.boredimag_,{opacity:1},0)
             .to(this.$refs.video_,{opacity:1},0)
             
@@ -122,6 +122,7 @@ export default {
           font-size: calc(13px + 1vw);
           opacity: 1;
           .clicNote {
+              position: relative;
               opacity: 1;
           }
       }
@@ -173,7 +174,7 @@ export default {
             top:20vw;
             font-size: calc(13px + 1vw);
             z-index: 2;  
-            transition: 2s ease-in-out; 
+            transition: 1s ease-in-out; 
         }
       }
       .container_ {
@@ -229,7 +230,10 @@ export default {
       //.......................................MAX 480px.................................
 
       @media only screen  and (max-width: 480px) {
-
+        .clicNote {
+              position: relative;
+              transform: translate(0%,-150%);
+          }
           .container_ {
                  margin: 2vw;
                 width: 76vw;
@@ -251,6 +255,11 @@ export default {
       //.......................................MIN 576px MAX 575px.................................
 
       @media only screen and (min-width: 481px) and (max-width: 575px) {
+         
+          .clicNote {
+              position: relative;
+              transform: translate(0%,-150%);
+          }
         .container_ {
                  margin: 2vw;
                 width: 76vw;
