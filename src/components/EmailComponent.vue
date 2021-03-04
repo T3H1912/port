@@ -60,7 +60,7 @@ import emailjs from 'emailjs-com'
     },
         methods: {
       sendEmail(e){
-      emailjs.sendForm("service_tqfvylm","template_1oi0pyr", e.target, 'user_YFk8wQrRChrWAEgMK1DaH', {
+      emailjs.sendForm("","", e.target, '', {
         email: this.email,
         name: this.name,
         message: this.message
