@@ -74,14 +74,49 @@ export default {
             const hover_ = document.querySelectorAll(".hover_")
             const grigText = document.querySelectorAll(".text_1")
 
-             container.forEach(item => {
-               item.addEventListener("mousemove", e => {
-               let x = (window.innerWidth / 2 - e.pageX) / 20
-               let y = (window.innerHeight / 2 - e.pageY) / 20
+             
+
+
+            
+            
+            
+
+             
+            const  mediumMediaQuery = window.matchMedia("(max-width:991px)"),
+                   largeMediaQuery = window.matchMedia("(min-width:992px)");
+
+
+            const mediumListener = function(e){
+              if(e.matches){
                new gsap.timeline()
-              .set(text_, {rotateX: x, rotateY: y })
+                    .set(text_, {rotateX: 0, rotateY: 0 })
+                //console.log('medium')
+              }
+            };
+
+            const largeListener = function(e){
+              if(e.matches){
+                container.forEach(item => {
+                  item.addEventListener("mousemove", e => {
+                    let x = (window.innerWidth / 2 - e.pageX) / 20
+                    let y = (window.innerHeight / 2 - e.pageY) / 20
+                    new gsap.timeline()
+                    .set(text_, {rotateX: x, rotateY: y })
+                  })
               })
-             })
+                //console.log('large')
+              }
+            };
+
+            mediumMediaQuery.addListener(mediumListener);
+            largeMediaQuery.addListener(largeListener);
+
+            mediumListener(mediumMediaQuery); 
+            largeListener(largeMediaQuery);
+
+
+
+
             
                 grigText.forEach(item => {
                     item.addEventListener("mouseenter", () => {  

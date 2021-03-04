@@ -50,7 +50,7 @@ export default {
           this.noe = true
         }    
         timeleft -= 1
-        }, 150)
+        }, 15)
             
     }
   }
@@ -65,7 +65,7 @@ export default {
      background-color: #000000 ;
      width: 100vw;
      height: 100%;
-     z-index: -10;
+     z-index: 10;
      animation: animate_2 5s linear infinite;
 
     #countdown{
@@ -75,7 +75,7 @@ export default {
       font-size: 40vw;
       animation: animate_2 5s linear infinite;
       animation: glow 1s ease-in-out infinite alternate;
-      z-index: -1;
+      z-index: 1;
      }
         @keyframes glow {
          from {

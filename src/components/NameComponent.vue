@@ -24,7 +24,7 @@
             </div>
           <div class="row">
             <div  class="link col-xl-12 col-lg-12 col-md-12 col-sm-12 getCVcoll">
-              <h4 @click="start" class="note_click" >Note: touch</h4> 
+              <h4 @click="start" class="note_click" >Note: click</h4> 
             </div>
             <div  class="link col-xl-12 col-lg-12 col-md-12 col-sm-12 getCVcoll">
               <h4 @mouseenter="start" class="link getCV" @click="onClick()">get CV</h4>

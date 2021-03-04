@@ -18,7 +18,7 @@
                             <div :class="{ cursor }">&nbsp;</div>
                         </h1>
                     </div>
-                        <p  ref="not_" class="link clicNote" @click="touch" @mouseenter="touch" >Note: touch</p>
+                        <p  ref="not_" class="link clicNote" @click="touch"  >Note: Click</p>
                     </div>     
                 </div>   
                     <div class=" note_video" >

@@ -48,7 +48,13 @@
       <section class="desComponent">
         <RoolTextComponent rollText="Thanks for watching"/>-
       </section> 
-
+        <b-container>
+          <b-row>
+            <b-col lg="12" md="12" sm="12" class="git">
+              <a class="link" href="https://github.com/T3H1912/port" target="_blank" ><b-icon icon="github"></b-icon> this page</a>
+            </b-col>
+          </b-row>
+        </b-container>
       <section class="EmailComponent">
         <EmailComponent />-
       </section>
@@ -202,6 +208,22 @@ export default {
           height: 100%;
           background-color: black;
           z-index: 1;
+        }
+        .git {
+          position: relative;
+          padding: 0;
+          margin: 0;
+
+          a {
+            position: absolute;
+            right: 5%;
+            font-size: calc(6px + 0.5vw);
+            text-decoration: none;
+            cursor: none;
+            color: #00f7ff;;
+            z-index: 1;
+
+          }
         }
         .footer {
           background: black;
