@@ -19,7 +19,7 @@
                     in a face and effeciently improves the lives of those around worldwide.
                     I love in creating software and design for Front end "There when is end.
                         It is coming finding and searching for new styles possibilities. 
-                        Perhaps from the Never-never land? ". just a call API or games? Let do it. 
+                        Perhaps from the Never-never land? ". Or games? Let do it. 
                         Would you like to know more about me "get the CV"
                     </p>
                 </div>
