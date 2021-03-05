@@ -50,7 +50,7 @@ export default {
           this.noe = true
         }    
         timeleft -= 1
-        }, 15)
+        }, 160)
             
     }
   }
