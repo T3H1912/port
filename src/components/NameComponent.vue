@@ -148,7 +148,7 @@ export default {
 
         onClick() {
               axios({
-                    url: 'https://dl.dropbox.com/s/bleb2umdd0mrqij/Tomas_Komrska_CV_.pdf?dl=1',
+                    url: 'https://dl.dropbox.com/s/hg9hlk08wyjrd4c/Tomas_Komrska_CV.pdf?dl=1', 
                     method: 'GET',
                     responseType: 'blob',
                 }).then((response) => {
