@@ -32,7 +32,7 @@
                     controls 
                     @mouseout="Leave"
                     >
-                    <source src="https://www.dropbox.com/s/zei36tjydbzw6rt/vue_video.mp4?dl=1" type="video/mp4">
+                    <source src="@/assets/video/vue_video.mp4" type="video/mp4">
                     Your browser does not support HTML5 video.
                 </video> 
                 </div>

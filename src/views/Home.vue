@@ -3,7 +3,7 @@
     <!-- <ScrollCore class="scroll"/> -->
     <div class="video_container" ref="vB">
       <video  id="back_video" autoplay playsinline muted loop>
-        <source src="https://www.dropbox.com/s/46t5ku4bz69lnem/Tunel_walking_sci-fi_2.mp4?dl=1" type="video/mp4">
+        <source src="../assets/video/Tunel_walking_sci-fi_2 (1).mp4" type="video/mp4">
       </video> 
     </div>
 
